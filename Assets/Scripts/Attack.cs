@@ -11,6 +11,7 @@ public class Attack : MonoBehaviour
     public KeyCode Key;
     public bool Can_attack = true;
     public GameObject Object_in_contact = null;
+    public string animation_name;
 
     public virtual IEnumerator Init()
     {
