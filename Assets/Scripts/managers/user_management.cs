@@ -9,6 +9,7 @@ public class user_management : MonoBehaviour
     public Vector3 coordonates_spawn;
     public bool rotate;
     public GameObject[] win_manager;
+    public GameObject info_player;
     void Start()
     {
         Player test = new Player(1, "Bowser", "lol");
@@ -75,8 +76,13 @@ public class user_management : MonoBehaviour
             }
         }
 
-        var statBars = GameObject.FindGameObjectsWithTag("statbar");
+        Initialize_hud();
+    }
 
+    public void Initialize_hud()
+    {
+        GameObject instance;
+        var statBars = GameObject.FindGameObjectsWithTag("statbar");
         foreach (Player warrior in players)
         {
             foreach (GameObject statBar in statBars)
@@ -86,7 +92,8 @@ public class user_management : MonoBehaviour
                     statBar.GetComponent<statBar>().player = warrior;
                 }
             }
+            instance = Instantiate(info_player);
+            instance.GetComponent<Info_player>().player = warrior;
         }
-
     }
 }

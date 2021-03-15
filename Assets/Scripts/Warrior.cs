@@ -71,7 +71,6 @@ public class Warrior : MonoBehaviour
     {
         if (damage > 0)
         {
-            Debug.Log(damage);
             GetComponent<Move>().animator.SetBool("hurt", true);
             gameObject.GetComponent<Rigidbody2D>().isKinematic = true;
             gameObject.GetComponent<Collider2D>().enabled = false;
