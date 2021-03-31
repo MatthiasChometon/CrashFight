@@ -14,11 +14,13 @@ public class user_management : MonoBehaviour
     {
         Player test = new Player(1, "Bowser", "lol");
         Player test_1 = new Player(2, "Don Flamingo", "lut");
-        Player test_2 = new Player(3, "Bowser", "lol");
+        Player test_2 = new Player(3, "Venom", "mdr");
+        Player test_3 = new Player(4, "Kisame", "yes");
         // Player test_3 = new Player(4, "Don Flamingo", "tro");
         players.Add(test);
         players.Add(test_1);
-        players.Add(test_2);
+        players.Add(test_2); 
+        players.Add(test_3);
         // players.Add(test_3);
         Create_players();
     }
