@@ -63,6 +63,14 @@ public class Warrior : MonoBehaviour
         if (this.Life <= 0)
         {
             gameObject.GetComponent<SpriteRenderer>().color = new Color(0f, 0f, 0f, 0f);
+            var infos_player = GameObject.FindGameObjectsWithTag("info_player");
+            foreach (GameObject info_Player in infos_player)
+            {
+                if (info_Player.GetComponent<Info_player>().number_player.text == "P" + this.number.ToString())
+                {
+                    Destroy(info_Player);
+                }
+            }
             Destroy(gameObject);
             manager.GetComponent<Win_manager>().Test_victory(this.GetComponent<Warrior>());
         }
