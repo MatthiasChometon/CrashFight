@@ -1822,7 +1822,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -33.81128, y: -79.604614}
+  m_AnchoredPosition: {x: -33.81122, y: -79.604614}
   m_SizeDelta: {x: -67.62244, y: -159.20914}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1267868072
@@ -1981,7 +1981,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1335992514
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2695,7 +2695,7 @@ MonoBehaviour:
   winner: {fileID: 0}
   round_win_panel: {fileID: 175949141}
   game_win_panel: {fileID: 1335992513}
-  round_for_win: 3
+  round_for_win: 1
 --- !u!212 &1655431731
 SpriteRenderer:
   m_ObjectHideFlags: 0

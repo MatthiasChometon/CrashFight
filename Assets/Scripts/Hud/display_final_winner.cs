@@ -26,7 +26,7 @@ public class display_final_winner : MonoBehaviour
             
             score_text.text += player.rounds_win;
 
-            if(manager.GetComponent<user_management>().players.Count == player[0]) {
+            if(manager.GetComponent<user_management>().players.Count - 1 != i) {
                 score_text.text += " / ";
             }
             
