@@ -11,7 +11,6 @@ public class display_final_winner : MonoBehaviour
     public GameObject left_panel;
     public GameObject right_panel;
     public Text score_text = null;
-    private Player winner_player = null;
     void Start()
     {
         int i = 0;

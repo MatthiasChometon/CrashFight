@@ -5,8 +5,6 @@ using UnityEngine.Networking;
 using UnityEngine.UI;
 using Newtonsoft.Json;
 
-
-
 public class GetPodium : MonoBehaviour
 {
     public bool usersGet = false;

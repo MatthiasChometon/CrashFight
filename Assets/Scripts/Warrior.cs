@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using Newtonsoft.Json;
 
 public class Warrior : MonoBehaviour
 {
+    [JsonProperty("life")]
     public int Life = 100;
     public int number;
     public GameObject Object_in_contact = null;
