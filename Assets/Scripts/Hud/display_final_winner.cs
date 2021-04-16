@@ -10,8 +10,11 @@ public class display_final_winner : MonoBehaviour
     public GameObject win_character_panel;
     public GameObject left_panel;
     public GameObject right_panel;
+    public Text score_text = null;
+    private Player winner_player = null;
     void Start()
     {
+        int i = 0;
         manager = GameObject.FindGameObjectsWithTag("manager")[0];
         foreach (Player player in manager.GetComponent<user_management>().players)
         {
@@ -20,6 +23,14 @@ public class display_final_winner : MonoBehaviour
                 win_text.text = "- " + player.pseudo + " -";
                 win_character_panel.GetComponent<Image>().sprite = player.character.GetComponent<SpriteRenderer>().sprite;
             }
+            
+            score_text.text += player.rounds_win;
+
+            if(manager.GetComponent<user_management>().players.Count == player[0]) {
+                score_text.text += " / ";
+            }
+            
+            i++;
         }
         StartCoroutine(AnimatePanels());
     }
