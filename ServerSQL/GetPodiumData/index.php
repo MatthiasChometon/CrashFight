@@ -4,22 +4,19 @@ $username = 'Crash-Fight';
 $password = '4hxNYJfpHoMpm3VM';
 $database = 'Crash-Fight';
 
-try {
-    $connectionQQM = new PDO('mysql:host=' . $hostname . '; dbname=' . $database, $username, $password);
-} catch (PDOException $e) {
-    echo '<h1>Une erreur s\'est produite<h1><pre>', $e->getMessage(), '</pre>';
+$conn = new mysqli($hostname, $username, $password, $database);
+//Vérifier la connexion
+if ($conn->connect_errno) {
+   printf("Échec de la connexion à la base de données");
+   exit();
 }
-
-$statement = $connectionQQM->prepare("SELECT * FROM user WHERE Pseudo = " . "'" . $_GET['Pseudo'] . "'");
-$statement->execute();
-$users = $statement->fetchAll(\PDO::FETCH_ASSOC);
-?>
-
-<?php
-foreach ($users as $user) {
-
-    echo $user['Id']; 
-    echo $user['Pseudo'];
-    echo $user['Score'];
+//Récupérer les lignes de la table users
+$res = $conn->query("SELECT * FROM user ");
+//Initialiser un tableau
+$data = array();
+//Récupérer les lignes
+while ( $row = $res->fetch_assoc())  {
+   $data[] = $row;
 }
-?>
+//Afficher le tableau au format JSON
+echo json_encode($data);

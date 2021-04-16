@@ -1,25 +1,21 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
+using Newtonsoft.Json;
 
-public class GetPodium
+
+
+public class GetPodium : MonoBehaviour
 {
-
-    public Text Id;
-    public Text Pseudo;
-    public Text Score;
+    public bool usersGet = false;
     private string data;
-    public string[] userData;
-
-
-    IEnumerator GetPodiumData()
+    public List<User> users = new List<User>();
+    public IEnumerator GetPodiumData()
     {
-        UnityWebRequest uwr = UnityWebRequest.Get("http://localhost:8000/GetPodiumData?=Pseudo" + Pseudo.text);
+        UnityWebRequest uwr = UnityWebRequest.Get("http://localhost:8000/GetPodiumData");
         yield return uwr.SendWebRequest();
-
-        Debug.Log(Pseudo.text);
 
         if (uwr.isNetworkError || uwr.isHttpError)
         {
@@ -28,10 +24,10 @@ public class GetPodium
         else
         {
             data = uwr.downloadHandler.text;
-            
-            Pseudo.text = userData[1];
-            Score.text = userData[2];
 
+            users = JsonConvert.DeserializeObject<List<User>>(data);
+
+            usersGet = true;
         }
     }
 }
