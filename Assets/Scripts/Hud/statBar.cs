@@ -26,7 +26,7 @@ public class statBar : MonoBehaviour
     private void DisplayStat()
     {
         sliderHealth.value = player.character.Life;
-
+        
         if (number_round_win_display < player.rounds_win)
         {
             GameObject instance;
@@ -40,5 +40,7 @@ public class statBar : MonoBehaviour
             }
         }
     }
+
+
 
 }

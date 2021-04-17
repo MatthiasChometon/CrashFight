@@ -78,7 +78,7 @@ public class user_management : MonoBehaviour
             }
         }
 
-        GetComponent<GetStat>().StartCoroutine("GetStatData");
+        GetComponent<GetStat>().StartCoroutine("Get_stats_data");
         Initialize_hud();
     }
 

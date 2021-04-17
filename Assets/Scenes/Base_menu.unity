@@ -368,15 +368,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 469954117}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02fbddcf479799549becfe64a33747ab, type: 3}
+  m_Script: {fileID: 11500000, guid: 2e5e626f221a77545a507439091ef215, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   options:
   - {fileID: 1779675238}
   - {fileID: 1699814267}
   - {fileID: 1173624177}
-  scenes:
-  - Battle
+  actions: []
+  validate_keys: 20000000
 --- !u!1 &594826952
 GameObject:
   m_ObjectHideFlags: 0
@@ -978,7 +978,7 @@ GameObject:
   - component: {fileID: 1699814268}
   - component: {fileID: 1699814267}
   m_Layer: 5
-  m_Name: controls
+  m_Name: options
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1035,7 +1035,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: controls
+  m_Text: options
 --- !u!222 &1699814268
 CanvasRenderer:
   m_ObjectHideFlags: 0

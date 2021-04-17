@@ -3,22 +3,30 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Web;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Networking;
 using Newtonsoft.Json;
 
 public class PostStat : MonoBehaviour
 {
-    void Start()
-    {
-        StartCoroutine(Upload());
+    public Slider life_slider;
+    public Stat new_stat;
+
+    void Start() {
+        new_stat = new Stat((int)life_slider.value,0);
+    }
+    public void Update_stats() {
+        new_stat.Life = (int)life_slider.value;
     }
 
-    IEnumerator Upload()
+    public void Validate_changes(bool change_scene = false) {
+        StartCoroutine(Upload(change_scene));
+    }
+    IEnumerator Upload(bool change_scene = false)
     {
         WWWForm form = new WWWForm();
 
-        Stat new_stat = new Stat(200, 2);
-        form.AddField("new_stats", new_stat.ToString());
+        form.AddField("new_stats", JsonConvert.SerializeObject(new_stat));
 
         UnityWebRequest www = UnityWebRequest.Post("http://localhost:8000/SendStatData", form);
         yield return www.SendWebRequest();
@@ -30,6 +38,10 @@ public class PostStat : MonoBehaviour
         else
         {
             Debug.Log("Form upload complete!");
+        }
+
+        if(change_scene) {
+            GetComponent<Change_scene>().LoadLevel();
         }
     }
 }

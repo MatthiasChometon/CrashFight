@@ -2,16 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
-using Newtonsoft.Json;
 
 public class Warrior : MonoBehaviour
 {
-    [JsonProperty("life")]
     public int Life = 100;
     public int number;
     public GameObject Object_in_contact = null;
     public List<Attack> Attacks;
-    public int Damage;
+    public int Damage = 0;
     public Attack curent_attack;
     public GameObject manager;
     void Start()
@@ -91,5 +89,4 @@ public class Warrior : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         GetComponent<Move>().animator.SetBool("hurt", false);
     }
-
 }

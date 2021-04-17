@@ -7,10 +7,12 @@ using Newtonsoft.Json;
 
 public class GetStat : MonoBehaviour
 {
-    public bool statGet = false;
+    void Start() {
+        StartCoroutine("Get_stats_data");
+    }
     private string data;
-    public List<Warrior> warriors = new List<Warrior>();
-    public IEnumerator GetStatData()
+    public Stat stat;
+    public IEnumerator Get_stats_data()
     {
         UnityWebRequest uwr = UnityWebRequest.Get("http://localhost:8000/GetStatData");
         yield return uwr.SendWebRequest();
@@ -22,12 +24,31 @@ public class GetStat : MonoBehaviour
         else
         {
             data = uwr.downloadHandler.text;
-
-            foreach(GameObject warrior in GameObject.FindGameObjectsWithTag("Player")) {
-                warrior.GetComponent<Warrior>().Life = JsonConvert.DeserializeObject<List<Stat>>(data)[0].Life;
-            }
-
-            statGet = true;
+            stat = JsonConvert.DeserializeObject<List<Stat>>(data)[0];
+            Set_stats();
         }
     }
+
+    public void Set_stats()
+    {
+        if (GameObject.FindGameObjectsWithTag("Player").Length != 0 && GameObject.FindGameObjectsWithTag("statbar").Length != 0)
+        {
+            foreach (GameObject warrior in GameObject.FindGameObjectsWithTag("Player"))
+            {
+                warrior.GetComponent<Warrior>().Life = stat.Life;
+            }
+
+            foreach (GameObject warrior in GameObject.FindGameObjectsWithTag("statbar"))
+            {
+                warrior.GetComponent<statBar>().sliderHealth.maxValue = stat.Life;
+            }
+        }
+
+        if (GameObject.FindGameObjectsWithTag("life_slider_option").Length != 0)
+        {
+            GameObject.FindGameObjectsWithTag("life_slider_option")[0].GetComponent<Slider>().value = stat.Life;
+        }
+
+    }
+
 }
