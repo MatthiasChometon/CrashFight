@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Options_menu : Menu
 {
     public Slider[] Sliders;
+    public string return_menu;
+
     void Update()
     {
 
@@ -32,6 +35,15 @@ public class Options_menu : Menu
             if (actual_option < options.Length - 1)
             {
                 Change_actual_option(actual_option + 1);
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return))
+        {
+            if (actual_option == options.Length - 1)
+            {
+                IEnumerator coroutine =  GetComponent<PostStat>().Upload(return_menu);
+                GetComponent<PostStat>().StartCoroutine(coroutine);
             }
         }
 

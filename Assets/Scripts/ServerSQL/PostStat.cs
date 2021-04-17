@@ -12,17 +12,16 @@ public class PostStat : MonoBehaviour
     public Slider life_slider;
     public Stat new_stat;
 
-    void Start() {
-        new_stat = new Stat((int)life_slider.value,0);
+    void Start()
+    {
+        new_stat = new Stat((int)life_slider.value, 0);
     }
-    public void Update_stats() {
+    public void Update_stats()
+    {
         new_stat.Life = (int)life_slider.value;
     }
 
-    public void Validate_changes(bool change_scene = false) {
-        StartCoroutine(Upload(change_scene));
-    }
-    IEnumerator Upload(bool change_scene = false)
+    public IEnumerator Upload(string change_scene = "")
     {
         WWWForm form = new WWWForm();
 
@@ -40,7 +39,8 @@ public class PostStat : MonoBehaviour
             Debug.Log("Form upload complete!");
         }
 
-        if(change_scene) {
+        if (change_scene != "")
+        {
             GetComponent<Change_scene>().LoadLevel();
         }
     }
