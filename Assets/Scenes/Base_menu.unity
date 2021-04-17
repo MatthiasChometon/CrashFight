@@ -375,7 +375,9 @@ MonoBehaviour:
   - {fileID: 1779675238}
   - {fileID: 1699814267}
   - {fileID: 1173624177}
-  actions: []
+  actions:
+  - Battle
+  - Options_menu
   validate_keys: 20000000
 --- !u!1 &594826952
 GameObject:
@@ -1113,7 +1115,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: -play-
+  m_Text: play
 --- !u!222 &1779675239
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -5,22 +5,51 @@ using UnityEngine.UI;
 
 public class Options_menu : Menu
 {
-    public List<Slider> Sliders;
+    public Slider[] Sliders;
     void Update()
     {
-        foreach (KeyCode validate_key in validate_keys)
+
+        if (Input.GetKey(KeyCode.RightArrow))
         {
-            if (Input.GetKey(validate_key))
+            Lauch_action(actual_option, "+");
+        }
+
+        if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            Lauch_action(actual_option, "-");
+        }
+
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            if (actual_option > 0)
             {
-                Lauch_action(actual_option);
+                Change_actual_option(actual_option - 1);
             }
         }
-    }
-    public override void Lauch_action(int option)
-    {
-        if (option < actions.Length && actions[option] != "")
+
+        if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-            //SceneManager.LoadScene(actions[option]);
+            if (actual_option < options.Length - 1)
+            {
+                Change_actual_option(actual_option + 1);
+            }
+        }
+
+    }
+    public void Lauch_action(int option, string operation)
+    {
+        if (option < Sliders.Length && Sliders[option] != null)
+        {
+
+            if (operation == "-")
+            {
+                Sliders[option].value -= 1;
+            }
+
+            if (operation == "+")
+            {
+                Sliders[option].value += 1;
+            }
         }
     }
 }

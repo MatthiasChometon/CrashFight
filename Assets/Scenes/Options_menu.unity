@@ -1440,10 +1440,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 379bad93fa7c9cb4eab9ba34b9e3db0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  options: []
+  options:
+  - {fileID: 674051972}
+  - {fileID: 765380171}
   actions: []
-  validate_keys: 00000000
-  Sliders: []
+  Sliders:
+  - {fileID: 840712068}
+  - {fileID: 233213195}
 --- !u!1 &1349487117
 GameObject:
   m_ObjectHideFlags: 0
