@@ -10,15 +10,17 @@ using Newtonsoft.Json;
 public class PostStat : MonoBehaviour
 {
     public Slider life_slider;
+    public Slider round_slider;
     public Stat new_stat;
 
     void Start()
     {
-        new_stat = new Stat((int)life_slider.value, 0);
+        new_stat = new Stat((int)life_slider.value, (int)round_slider.value);
     }
     public void Update_stats()
     {
         new_stat.Life = (int)life_slider.value;
+        new_stat.Round = (int)round_slider.value;
     }
 
     public IEnumerator Upload(string change_scene = "")

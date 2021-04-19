@@ -7,11 +7,13 @@ using Newtonsoft.Json;
 
 public class GetStat : MonoBehaviour
 {
-    void Start() {
+    void Start()
+    {
         StartCoroutine("Get_stats_data");
     }
     private string data;
     public Stat stat;
+
     public IEnumerator Get_stats_data()
     {
         UnityWebRequest uwr = UnityWebRequest.Get("http://localhost:8000/GetStatData");
@@ -44,11 +46,19 @@ public class GetStat : MonoBehaviour
             }
         }
 
+        if(GameObject.FindGameObjectsWithTag("Player").Length != 0) {
+            GameObject.FindGameObjectsWithTag("manager")[0].GetComponent<Win_manager>().round_for_win = stat.Round;
+        }
+
         if (GameObject.FindGameObjectsWithTag("life_slider_option").Length != 0)
         {
             GameObject.FindGameObjectsWithTag("life_slider_option")[0].GetComponent<Slider>().value = stat.Life;
         }
 
+        if (GameObject.FindGameObjectsWithTag("round_slider_option").Length != 0)
+        {
+            GameObject.FindGameObjectsWithTag("round_slider_option")[0].GetComponent<Slider>().value = stat.Round;
+        }
     }
 
 }

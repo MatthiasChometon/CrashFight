@@ -2,24 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class Options_menu : Menu
 {
     public Slider[] Sliders;
     public string return_menu;
+    private bool wait_change_value = true;
 
     void Update()
     {
 
-        if (Input.GetKey(KeyCode.RightArrow))
+        if (wait_change_value)
         {
-            Lauch_action(actual_option, "+");
-        }
+            if (Input.GetKey(KeyCode.RightArrow))
+            {
+                StartCoroutine(Lauch_action(actual_option, "+"));
+            }
 
-        if (Input.GetKey(KeyCode.LeftArrow))
-        {
-            Lauch_action(actual_option, "-");
+            if (Input.GetKey(KeyCode.LeftArrow))
+            {
+                StartCoroutine(Lauch_action(actual_option, "-"));
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.UpArrow))
@@ -42,17 +45,17 @@ public class Options_menu : Menu
         {
             if (actual_option == options.Length - 1)
             {
-                IEnumerator coroutine =  GetComponent<PostStat>().Upload(return_menu);
+                IEnumerator coroutine = GetComponent<PostStat>().Upload(return_menu);
                 GetComponent<PostStat>().StartCoroutine(coroutine);
             }
         }
 
     }
-    public void Lauch_action(int option, string operation)
+    public IEnumerator Lauch_action(int option, string operation)
     {
+        wait_change_value = false;
         if (option < Sliders.Length && Sliders[option] != null)
         {
-
             if (operation == "-")
             {
                 Sliders[option].value -= 1;
@@ -63,5 +66,7 @@ public class Options_menu : Menu
                 Sliders[option].value += 1;
             }
         }
+        yield return new WaitForSeconds(Sliders[option].maxValue*Sliders[option].maxValue/1000000000);
+        wait_change_value = true;
     }
 }
