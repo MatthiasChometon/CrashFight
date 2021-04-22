@@ -7,9 +7,9 @@ using Newtonsoft.Json;
 
 public class GetPodium : MonoBehaviour
 {
-    public bool usersGet = false;
+    public bool scoreSet = false;
     private string data;
-    public List<User> users = new List<User>();
+    public List<Score> best_scores = new List<Score>();
     public IEnumerator GetPodiumData()
     {
         UnityWebRequest uwr = UnityWebRequest.Get("http://localhost:8000/GetPodiumData");
@@ -23,9 +23,9 @@ public class GetPodium : MonoBehaviour
         {
             data = uwr.downloadHandler.text;
 
-            users = JsonConvert.DeserializeObject<List<User>>(data);
+            best_scores = JsonConvert.DeserializeObject<List<Score>>(data);
 
-            usersGet = true;
+            scoreSet = true;
         }
     }
 }

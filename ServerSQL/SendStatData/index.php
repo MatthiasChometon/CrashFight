@@ -10,7 +10,7 @@ try {
     echo '<h1>Une erreur s\'est produite<h1><pre>', $e->getMessage(), '</pre>';
 }
 
-$data = json_decode($_POST['score']);
+$data = json_decode($_POST['new_stats']);
 
-$statement = $connectionQQM->prepare("INSERT INTO Score (`value`,`winner`) VALUES (" . '"' . $data->value . '"' . "," . '"' . $data->winner . '"' . ")");
+$statement = $connectionQQM->prepare("UPDATE stat SET `life`=".$data->life.",`round`=".$data->round);
 $statement->execute();

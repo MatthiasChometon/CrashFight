@@ -8,6 +8,7 @@ public class Options_menu : Menu
     public Slider[] Sliders;
     public string return_menu;
     private bool wait_change_value = true;
+    public float change_value_speed = 0.1f;
 
     void Update()
     {
@@ -66,7 +67,7 @@ public class Options_menu : Menu
                 Sliders[option].value += 1;
             }
         }
-        yield return new WaitForSeconds(Sliders[option].maxValue*Sliders[option].maxValue/1000000000);
+        yield return new WaitForSeconds(Sliders[option].maxValue);
         wait_change_value = true;
     }
 }

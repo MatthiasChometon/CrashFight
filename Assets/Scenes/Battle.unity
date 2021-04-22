@@ -2651,6 +2651,7 @@ GameObject:
   - component: {fileID: 1655431730}
   - component: {fileID: 1655431729}
   - component: {fileID: 1655431733}
+  - component: {fileID: 1655431734}
   m_Layer: 0
   m_Name: management
   m_TagString: manager
@@ -2697,6 +2698,7 @@ MonoBehaviour:
   round_win_panel: {fileID: 175949141}
   game_win_panel: {fileID: 1335992513}
   round_for_win: 1
+  redirect_scene: Base_menu
 --- !u!212 &1655431731
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2771,6 +2773,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 690ed590334b8b54cb56d014ec06c823, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1655431734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1655431728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ebde4ef431a20748a82b5c1663ecc6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1694456383
