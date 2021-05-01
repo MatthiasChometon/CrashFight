@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+ 
 public class Options_menu : Menu
 {
     public List<Slider> Sliders;
