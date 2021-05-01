@@ -1,9 +1,8 @@
 <?php
 $hostname = 'localhost:3306';
-$username = 'Crash-Fight';
-$password = '4hxNYJfpHoMpm3VM';
-$database = 'Crash-Fight';
-
+$username = 'root';
+$password = '';
+$database = 'crashfight';
 
 try {
     $connectionQQM = new PDO('mysql:host=' . $hostname . '; dbname=' . $database, $username, $password);
@@ -11,24 +10,7 @@ try {
     echo '<h1>Une erreur s\'est produite<h1><pre>', $e->getMessage(), '</pre>';
 }
 
-echo 'SELECT * FROM user where Pseudo = ' . $_GET['Pseudo'];
-$statement = $connectionQQM->prepare("SELECT * FROM user");
+$data = json_decode($_POST['score']);
+
+$statement = $connectionQQM->prepare("INSERT INTO Score (`value`,`winner`) VALUES (" . '"' . $data->value . '"' . "," . '"' . $data->winner . '"' . ")");
 $statement->execute();
-$allResults = $statement->fetchAll(\PDO::FETCH_ASSOC);
-?>
-
-<!DOCTYPE html>
-
-<body>
-    <p>
-        <?php
-        foreach ($allResults[0] as $key => $value) {
-            if (empty($_GET[$key]) == false && $key != 'Pseudo') {
-                echo "UPDATE user SET " . $key . " = " . $_GET[$key];
-                $statement = $connectionQQM->prepare("UPDATE user SET " . $key . " = " . "'" . $_GET[$key] . "'" . "WHERE Pseudo = " . "'" . $_GET['Pseudo'] . "'");
-                $statement->execute();
-            }
-        }
-        ?>
-    </p>
-</body>

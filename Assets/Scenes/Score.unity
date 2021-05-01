@@ -463,7 +463,6 @@ GameObject:
   - component: {fileID: 1420882068}
   - component: {fileID: 1420882067}
   - component: {fileID: 1420882066}
-  - component: {fileID: 1420882065}
   - component: {fileID: 1420882070}
   - component: {fileID: 1420882071}
   - component: {fileID: 1420882069}
@@ -474,23 +473,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1420882065
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1420882064}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IgnoreReversedGraphics: 1
-  m_BlockingObjects: 0
-  m_BlockingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
 --- !u!114 &1420882066
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -503,7 +485,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -522,8 +504,8 @@ Canvas:
   m_GameObject: {fileID: 1420882064}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_RenderMode: 1
+  m_Camera: {fileID: 1476111299}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -569,7 +551,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 678b1147f66d28c42a4b53d3614d5ac1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  usersGet: 0
+  scoreSet: 0
 --- !u!95 &1420882070
 Animator:
   serializedVersion: 3

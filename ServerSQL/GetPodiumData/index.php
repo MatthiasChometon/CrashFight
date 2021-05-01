@@ -1,8 +1,8 @@
 <?php
 $hostname = 'localhost:3306';
-$username = 'Crash-Fight';
-$password = '4hxNYJfpHoMpm3VM';
-$database = 'Crash-Fight';
+$username = 'root';
+$password = '';
+$database = 'crashfight';
 
 $conn = new mysqli($hostname, $username, $password, $database);
 //Vérifier la connexion
@@ -10,8 +10,8 @@ if ($conn->connect_errno) {
    printf("Échec de la connexion à la base de données");
    exit();
 }
-//Récupérer les lignes de la table users
-$res = $conn->query("SELECT * FROM user ");
+//Récupérer les lignes de la table score
+$res = $conn->query("SELECT * FROM score");
 //Initialiser un tableau
 $data = array();
 //Récupérer les lignes

@@ -8,12 +8,12 @@ public class Stat
     [JsonProperty("life")]
     public int Life { get; set; }
 
-    [JsonProperty("attack")]
-    public int Attack { get; set; }
+    [JsonProperty("round")]
+    public int Round { get; set; }
 
-    public Stat(int life, int attack)
+    public Stat(int life, int round)
     {
         this.Life = life;
-        this.Attack = attack;
+        this.Round = round;
     }
 }

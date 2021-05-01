@@ -10,6 +10,7 @@ public class Win_manager : MonoBehaviour
     public GameObject round_win_panel;
     public GameObject game_win_panel;
     public int round_for_win = 3;
+    public string redirect_scene = "Base_menu";
 
     public void Test_victory(Warrior player)
     {
@@ -30,6 +31,8 @@ public class Win_manager : MonoBehaviour
                     if (Check_game_victory())
                     {
                         game_win_panel.SetActive(true);
+                        Score score = game_win_panel.GetComponent<display_final_winner>().Display_winner_game();
+                        StartCoroutine(GetComponent<PostPodium>().UploadPodium(score, redirect_scene));
                     }
                     else
                     {

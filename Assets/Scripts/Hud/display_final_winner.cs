@@ -11,15 +11,17 @@ public class display_final_winner : MonoBehaviour
     public GameObject left_panel;
     public GameObject right_panel;
     public Text score_text = null;
-    void Start()
+    public Score Display_winner_game()
     {
         int i = 0;
         manager = GameObject.FindGameObjectsWithTag("manager")[0];
+        var pseudo = "";
         foreach (Player player in manager.GetComponent<user_management>().players)
         {
             if (player.number == manager.GetComponent<Win_manager>().winner.number)
             {
-                win_text.text = "- " + player.pseudo + " -";
+                pseudo = player.pseudo;
+                win_text.text = "- " + pseudo + " -";
                 win_character_panel.GetComponent<Image>().sprite = player.character.GetComponent<SpriteRenderer>().sprite;
             }
             
@@ -31,7 +33,8 @@ public class display_final_winner : MonoBehaviour
             
             i++;
         }
-        StartCoroutine(AnimatePanels());
+        StartCoroutine(AnimatePanels()); 
+        return new Score(score_text.text, pseudo);
     }
 
     IEnumerator AnimatePanels()

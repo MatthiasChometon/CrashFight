@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public class Move : MonoBehaviour
 {
     public float vitesse = 0.0001f;

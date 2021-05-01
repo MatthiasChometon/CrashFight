@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class Display_users : MonoBehaviour
 {
 
-    private bool userSet = false;
-    private List<User> best_players;
+    private bool scoreSet = false;
+    private List<Score> best_scores;
     public GameObject score;
 
     void Start()
@@ -20,18 +20,17 @@ public class Display_users : MonoBehaviour
         Text score_text = score.GetComponent<Text>();
         score_text.alignment = TextAnchor.MiddleCenter;
 
-
-        if (GetComponent<GetPodium>().usersGet == true && userSet == false)
+        if (GetComponent<GetPodium>().scoreSet == true && scoreSet == false)
         {
-            foreach (User user in GetComponent<GetPodium>().users)
+            foreach (Score score in GetComponent<GetPodium>().best_scores)
            {
-            score_text.text += user.Pseudo;
+            score_text.text += score.Winner;
             score_text.text += "     ";
-            score_text.text += user.Score.ToString();
+            score_text.text += score.Value.ToString();
             score_text.text += "\n";
 
             }
-            userSet = true;
+            scoreSet = true;
         }
 
     }
