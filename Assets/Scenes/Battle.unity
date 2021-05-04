@@ -2649,9 +2649,9 @@ GameObject:
   - component: {fileID: 1655431732}
   - component: {fileID: 1655431731}
   - component: {fileID: 1655431730}
-  - component: {fileID: 1655431729}
   - component: {fileID: 1655431733}
   - component: {fileID: 1655431734}
+  - component: {fileID: 1655431735}
   m_Layer: 0
   m_Name: management
   m_TagString: manager
@@ -2659,28 +2659,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1655431729
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1655431728}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d6734791d5293c44bf1c52e67916f29, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  characters:
-  - {fileID: 4785536711007213410, guid: a4c169cc21547824ab3fd3e21d2bd7c9, type: 3}
-  - {fileID: 2740629401999754140, guid: 72d0f69f080a3764bae2e8dc870c9c81, type: 3}
-  - {fileID: 5634269845137738151, guid: de08ff766701703478b426083808603e, type: 3}
-  - {fileID: 5775889528739896179, guid: 366425a28ebcfed41a48f009b3c78b7f, type: 3}
-  coordonates_spawn: {x: 0, y: 0, z: 0}
-  rotate: 0
-  win_manager: []
-  info_player: {fileID: 2195058207924926999, guid: 07ee51c8c598ca745adc49a72b676c62,
-    type: 3}
 --- !u!114 &1655431730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2785,6 +2763,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2ebde4ef431a20748a82b5c1663ecc6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1655431735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1655431728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43910992fb9772f47a83ab6e5e40f5fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1694456383

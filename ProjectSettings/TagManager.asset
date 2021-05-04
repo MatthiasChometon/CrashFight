@@ -8,6 +8,13 @@ TagManager:
   - attack
   - statbar
   - manager
+  - hud
+  - info_player
+  - life_slider_option
+  - round_slider_option
+  - box_choices
+  - user_manager
+  - choose_player_manager
   layers:
   - Default
   - TransparentFX

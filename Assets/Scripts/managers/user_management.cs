@@ -5,24 +5,30 @@ using UnityEngine;
 public class user_management : MonoBehaviour
 {
     public List<GameObject> characters = new List<GameObject>();
-    public List<Player> players = new List<Player>();
+    public List<Player> players = new List<Player>() { new Player(1, "", "lol"), new Player(2, "", "lut") };
     public Vector3 coordonates_spawn;
     public bool rotate;
     public GameObject[] win_manager;
     public GameObject info_player;
     void Start()
     {
-        Player test = new Player(1, "Bowser", "lol");
-        Player test_1 = new Player(2, "Don Flamingo", "lut");
-        Player test_2 = new Player(3, "Venom", "mdr");
-        Player test_3 = new Player(4, "Kisame", "yes");
+        DontDestroyOnLoad(this);
+        // Player test = new Player(1, "Bowser", "lol");
+        // Player test_1 = new Player(2, "Don Flamingo", "lut");
+        // Player test_2 = new Player(3, "Venom", "mdr");
+        // Player test_3 = new Player(4, "Kisame", "yes");
         // Player test_3 = new Player(4, "Don Flamingo", "tro");
-        players.Add(test);
-        players.Add(test_1);
-        players.Add(test_2); 
-        players.Add(test_3);
+        // players.Add(test);
+        // players.Add(test);
+        // players.Add(test_2); 
         // players.Add(test_3);
-        Create_players();
+        // players.Add(test_3);
+        //Create_players();
+    }
+
+    public void Modify_player(Player player_modify, string character_wanted)
+    {
+        players[players.IndexOf(players.Find(x => x.number == player_modify.number))].character_wanted = character_wanted;
     }
 
     public void Create_players()
@@ -78,7 +84,7 @@ public class user_management : MonoBehaviour
             }
         }
 
-        GetComponent<GetStat>().StartCoroutine("Get_stats_data");
+        GameObject.FindGameObjectsWithTag("manager")[0].GetComponent<GetStat>().StartCoroutine("Get_stats_data");
         Initialize_hud();
     }
 

@@ -11,6 +11,11 @@ public class Win_manager : MonoBehaviour
     public GameObject game_win_panel;
     public int round_for_win = 3;
     public string redirect_scene = "Base_menu";
+    private user_management user_management;
+
+    void Start() {
+        user_management = GameObject.FindGameObjectsWithTag("user_manager")[0].GetComponent<user_management>();
+    }
 
     public void Test_victory(Warrior player)
     {
@@ -47,14 +52,14 @@ public class Win_manager : MonoBehaviour
     public void Start_round()
     {
         Destroy_game();
-        this.GetComponent<user_management>().Create_players();
+        user_management.Create_players();
         round_win_panel.SetActive(false);
         game_win_panel.SetActive(false);
     }
 
     void Add_point()
     {
-        foreach (Player player in this.GetComponent<user_management>().players)
+        foreach (Player player in user_management.players)
         {
             if (player.number == this.GetComponent<Win_manager>().winner.GetComponent<Warrior>().number)
             {
@@ -78,7 +83,7 @@ public class Win_manager : MonoBehaviour
 
     bool Check_game_victory()
     {
-        foreach (Player player in GetComponent<user_management>().players)
+        foreach (Player player in user_management.players)
         {
             if (player.rounds_win == round_for_win)
             {

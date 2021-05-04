@@ -67,7 +67,7 @@ public class Options_menu : Menu
                 Sliders[option].value += 1;
             }
         }
-        yield return new WaitForSeconds(Sliders[option].maxValue);
+        yield return new WaitForSeconds(1 / Sliders[option].maxValue);
         wait_change_value = true;
     }
 }

@@ -10,11 +10,13 @@ public class display_round_win : MonoBehaviour
     public Text win_text = null;
     public GameObject left_panel;
     public GameObject right_panel;
+    private user_management user_management;
 
     public void Display_winner_round()
     {
+        user_management = GameObject.FindGameObjectsWithTag("user_manager")[0].GetComponent<user_management>();
         manager = GameObject.FindGameObjectsWithTag("manager")[0];
-        foreach (Player player in manager.GetComponent<user_management>().players)
+        foreach (Player player in user_management.players)
         {
             if (player.number == manager.GetComponent<Win_manager>().winner.number)
             {
