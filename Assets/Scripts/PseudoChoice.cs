@@ -20,9 +20,17 @@ public class PseudoChoice : Menu
     public KeyCode move_right;
     public KeyCode move_up;
     public KeyCode move_down;
+    public KeyCode validate;
 
     public GameObject alphabet_panel;
 
+    private user_management user_management;
+    public int user_number;
+
+    void Start()
+    {
+        this.user_management = GameObject.FindGameObjectsWithTag("user_manager")[0].GetComponent<user_management>();
+    }
 
     void Update()
     // Update is called once per frame void Update()
@@ -64,6 +72,11 @@ public class PseudoChoice : Menu
 
         }
 
+        if (Input.GetKeyDown(validate))
+        {
+            this.Add_pseudo_player(this.pseudo);
+        }
+
 
     }
 
@@ -71,6 +84,15 @@ public class PseudoChoice : Menu
     {
         pseudo[pseudo_position] = alphabet[alphabet_position];
         pseudo_text[pseudo_position].text = pseudo[pseudo_position].ToString();
+    }
+
+
+
+
+
+    void Add_pseudo_player(char[] new_pseudo)
+    {
+        this.user_management.players[this.user_number].pseudo = new string(new_pseudo);
     }
 
 }
