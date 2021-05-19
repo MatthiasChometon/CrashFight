@@ -540,6 +540,7 @@ MonoBehaviour:
   actions:
   - Choose_player_option
   - Options_menu
+  - Score
   validate_keys: 20000000
 --- !u!1 &477119908
 GameObject:
@@ -1398,7 +1399,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -127.77002}
+  m_AnchoredPosition: {x: 0, y: -127.77003}
   m_SizeDelta: {x: -694.4186, y: -475.90732}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1779675238

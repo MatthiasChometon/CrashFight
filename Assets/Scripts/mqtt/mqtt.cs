@@ -10,8 +10,8 @@ using System.Collections.Generic;
 
 public class mqtt : MonoBehaviour
 {
-
     public List<String> PlayersId;
+    public String[] PlayersCommands = new String[4];
 
     private MqttClient client;
     // Use this for initialization
@@ -41,14 +41,14 @@ public class mqtt : MonoBehaviour
             connectToJoyStick(e);
         }
 
-        if (e.Topic == "command/1")
+        Debug.Log(e.Topic);
+        for (int i=1;i<=PlayersId.Count;i++)
         {
-            Debug.Log("Received: 1 " + System.Text.Encoding.UTF8.GetString(e.Message));
-        }
-
-        if (e.Topic == "command/2")
-        {
-            Debug.Log("Received: 2 " + System.Text.Encoding.UTF8.GetString(e.Message));
+          
+            if (e.Topic == "command/" + i)
+            {
+                PlayersCommands[i-1] = System.Text.Encoding.UTF8.GetString(e.Message);
+            }
         }
 
     }
@@ -73,6 +73,7 @@ public class mqtt : MonoBehaviour
             client.Publish("hello/world", System.Text.Encoding.UTF8.GetBytes("Sending from Unity3D!!!"), MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE, true);
         }
     }
+
     // Update is called once per frame
     void Update()
     {
