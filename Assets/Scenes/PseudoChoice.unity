@@ -140,6 +140,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 437509977}
     m_Modifications:
+    - target: {fileID: 592092399695210592, guid: 4ad6f16d261ebf94eb52efb96343b786,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: a4c5edc835eedb24aa161edc34033dce,
+        type: 3}
+    - target: {fileID: 592092400053877681, guid: 4ad6f16d261ebf94eb52efb96343b786,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: db9da19a100786649b15c2c8a3a7111f,
+        type: 3}
     - target: {fileID: 592092401029468184, guid: 4ad6f16d261ebf94eb52efb96343b786,
         type: 3}
       propertyPath: m_LocalPosition.x
