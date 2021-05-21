@@ -22,11 +22,10 @@ public class Warrior : control
     {
         foreach (Attack attack in Attacks)
         {
-            if (attack.Can_attack == true && can_move == true)
+            if (attack.Can_attack == true)
             {
                 if (commands_manager.PlayersCommands[number - 1] == attack.Key)
                 {
-                    StartCoroutine(wait_to_move(0.3f, number));
                     this.curent_attack = attack;
                     StartCoroutine(attack.Init());
                 }
@@ -44,6 +43,7 @@ public class Warrior : control
 
         if (this.Object_in_contact && this.Object_in_contact.tag == "Player")
         {
+            Debug.Log("damage: " + this.Object_in_contact.GetComponent<Warrior>().Damage);
             Take_damage(this.Object_in_contact.GetComponent<Warrior>().Damage);
         }
 
@@ -61,6 +61,7 @@ public class Warrior : control
             damage = this.Object_in_contact.GetComponent<Warrior>().curent_attack.Damage;
         }
         StartCoroutine(Take_damage_animation(damage, this.Object_in_contact, near_attack));
+        Debug.Log(damage);
         this.Life -= damage;
         if (this.Life <= 0)
         {
