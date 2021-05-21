@@ -127,11 +127,20 @@ MonoBehaviour:
   thrust: 60
   jump: 1
   wait_jump: 40
+  go_right:
+  - E
+  - NE
+  - SE
+  go_left:
+  - W
+  - NW
+  - SW
+  go_up:
+  - N
+  - NE
+  - NW
   orientation: right
   animator: {fileID: 2740629401999754139}
-  move_left: 107
-  move_right: 109
-  move_up: 111
 --- !u!61 &2740629401999754137
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -212,9 +221,10 @@ MonoBehaviour:
   Speed: 4
   Object_attack: {fileID: 0}
   Couldown: 0.2
-  Key: 106
+  Key: yellow
   Can_attack: 1
   Object_in_contact: {fileID: 0}
+  animation_name: 
 --- !u!114 &1389401526506839073
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,9 +241,10 @@ MonoBehaviour:
   Speed: 4
   Object_attack: {fileID: 0}
   Couldown: 0.5
-  Key: 104
+  Key: red
   Can_attack: 1
   Object_in_contact: {fileID: 0}
+  animation_name: 
 --- !u!114 &2740629401999754136
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -251,8 +262,9 @@ MonoBehaviour:
   Object_attack: {fileID: 7576976308846973734, guid: e4435627b9a69dc4fb079194009fa0cc,
     type: 3}
   Couldown: 0.8
-  Key: 103
+  Key: blue
   Can_attack: 1
   Object_in_contact: {fileID: 0}
+  animation_name: 
   Players: []
   Player_most_closer: {fileID: 0}

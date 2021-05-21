@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-public class Warrior : MonoBehaviour
+public class Warrior : control
 {
     public int Life = 100;
     public int number;
@@ -16,6 +16,7 @@ public class Warrior : MonoBehaviour
     {
         manager = GameObject.FindGameObjectsWithTag("manager")[0];
         Attacks = GetComponents<Attack>().ToList();
+        commands_manager = GameObject.FindGameObjectsWithTag("commands_manager")[0].GetComponent<mqtt>();
     }
     void Update()
     {
@@ -23,7 +24,7 @@ public class Warrior : MonoBehaviour
         {
             if (attack.Can_attack == true)
             {
-                if (Input.GetKeyDown(attack.Key))
+                if (commands_manager.PlayersCommands[number - 1] == attack.Key)
                 {
                     this.curent_attack = attack;
                     StartCoroutine(attack.Init());
@@ -42,6 +43,7 @@ public class Warrior : MonoBehaviour
 
         if (this.Object_in_contact && this.Object_in_contact.tag == "Player")
         {
+            Debug.Log("damage: " + this.Object_in_contact.GetComponent<Warrior>().Damage);
             Take_damage(this.Object_in_contact.GetComponent<Warrior>().Damage);
         }
 
@@ -59,6 +61,7 @@ public class Warrior : MonoBehaviour
             damage = this.Object_in_contact.GetComponent<Warrior>().curent_attack.Damage;
         }
         StartCoroutine(Take_damage_animation(damage, this.Object_in_contact, near_attack));
+        Debug.Log(damage);
         this.Life -= damage;
         if (this.Life <= 0)
         {

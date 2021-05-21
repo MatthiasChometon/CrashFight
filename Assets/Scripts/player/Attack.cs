@@ -8,7 +8,7 @@ public class Attack : MonoBehaviour
     public float Speed = 4;
     public GameObject Object_attack;
     public float Couldown = 0.1f;
-    public KeyCode Key;
+    public string Key;
     public bool Can_attack = true;
     public GameObject Object_in_contact = null;
     public string animation_name;

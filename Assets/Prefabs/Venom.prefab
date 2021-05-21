@@ -127,11 +127,20 @@ MonoBehaviour:
   thrust: 60
   jump: 1
   wait_jump: 40
+  go_right:
+  - E
+  - NE
+  - SE
+  go_left:
+  - W
+  - NW
+  - SW
+  go_up:
+  - N
+  - NE
+  - NW
   orientation: right
   animator: {fileID: 5634269845137738168}
-  move_left: 107
-  move_right: 109
-  move_up: 111
 --- !u!61 &5634269845137738146
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -212,7 +221,7 @@ MonoBehaviour:
   Speed: 4
   Object_attack: {fileID: 0}
   Couldown: 0.1
-  Key: 274
+  Key: blue
   Can_attack: 1
   Object_in_contact: {fileID: 0}
   animation_name: giant_bite
@@ -232,7 +241,7 @@ MonoBehaviour:
   Speed: 4
   Object_attack: {fileID: 0}
   Couldown: 0.1
-  Key: 32
+  Key: red
   Can_attack: 1
   Object_in_contact: {fileID: 0}
   animation_name: multiples_crush
@@ -252,7 +261,7 @@ MonoBehaviour:
   Speed: 4
   Object_attack: {fileID: 0}
   Couldown: 0.1
-  Key: 277
+  Key: yellow
   Can_attack: 1
   Object_in_contact: {fileID: 0}
   animation_name: punch_crush

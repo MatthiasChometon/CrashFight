@@ -12,6 +12,7 @@ public class Win_manager : MonoBehaviour
     public int round_for_win = 3;
     public string redirect_scene = "Base_menu";
     private user_management user_management;
+    public string level_to_load = "Choose_player_option";
 
     void Start() {
         user_management = GameObject.FindGameObjectsWithTag("user_manager")[0].GetComponent<user_management>();
@@ -91,5 +92,9 @@ public class Win_manager : MonoBehaviour
             }
         }
         return false;
+    }
+
+    public void End_game() {
+        SceneManager.LoadScene(level_to_load);
     }
 }

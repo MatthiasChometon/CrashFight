@@ -128,11 +128,20 @@ MonoBehaviour:
   thrust: 60
   jump: 1
   wait_jump: 40
+  go_right:
+  - E
+  - NE
+  - SE
+  go_left:
+  - W
+  - NW
+  - SW
+  go_up:
+  - N
+  - NE
+  - NW
   orientation: right
   animator: {fileID: 5775889528739896172}
-  move_left: 118
-  move_right: 98
-  move_up: 110
 --- !u!61 &5775889528739896182
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -213,7 +222,7 @@ MonoBehaviour:
   Speed: 4
   Object_attack: {fileID: 0}
   Couldown: 0.1
-  Key: 282
+  Key: yellow
   Can_attack: 1
   Object_in_contact: {fileID: 0}
   animation_name: long_sword_attack
@@ -234,7 +243,7 @@ MonoBehaviour:
   Object_attack: {fileID: 567147294173414982, guid: 0e2fedf64e9dbc44999957165413b748,
     type: 3}
   Couldown: 0.6
-  Key: 283
+  Key: red
   Can_attack: 1
   Object_in_contact: {fileID: 0}
   animation_name: 
@@ -255,7 +264,7 @@ MonoBehaviour:
   Object_attack: {fileID: 9131865968379104221, guid: 0d308d9f4f9123647bd74ca4d0acf44c,
     type: 3}
   Couldown: 0.7
-  Key: 284
+  Key: blue
   Can_attack: 1
   Object_in_contact: {fileID: 0}
   animation_name: 

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Score_menu : Menu
+public class Return_menu : Menu
 {
     public string return_menu = "Base_menu";
     void Update()

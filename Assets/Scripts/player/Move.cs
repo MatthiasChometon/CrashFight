@@ -13,49 +13,51 @@ public class Move : control
     public int wait_jump = 10;
     public List<string> go_right = new List<string>() { "E", "NE", "SE" };
     public List<string> go_left = new List<string>() { "W", "NW", "SW" };
-    public List<string> go_up = new List<string>() { "E", "NE", "SE" };
+    public List<string> go_up = new List<string>() { "N", "NE", "NW" };
     public string orientation = "right";
     public Animator animator;
 
     void Update()
     {
         animator.SetBool("walk", false);
-        Debug.Log(commands_manager.PlayersCommands[this.GetComponent<Warrior>().number - 1]);
-        if (commands_manager.PlayersCommands[this.GetComponent<Warrior>().number] == "E"
-        || commands_manager.PlayersCommands[this.GetComponent<Warrior>().number] == "NE"
-        || commands_manager.PlayersCommands[this.GetComponent<Warrior>().number] == "SE")
+        can_move = false; 
+        foreach (string key in go_right)
         {
-            animator.SetBool("walk", true);
-            if (this.orientation == "left")
+            if (commands_manager.PlayersCommands[this.GetComponent<Warrior>().number - 1] == key)
             {
-                transform.Rotate(0f, 180f, 0f);
+                animator.SetBool("walk", true);
+                if (this.orientation == "left")
+                {
+                    transform.Rotate(0f, 180f, 0f);
+                }
+                right();
             }
-            right();
         }
-        if (commands_manager.PlayersCommands[this.GetComponent<Warrior>().number] == "W"
-        || commands_manager.PlayersCommands[this.GetComponent<Warrior>().number] == "NW"
-        || commands_manager.PlayersCommands[this.GetComponent<Warrior>().number] == "SW")
+
+        foreach (string key in go_left)
         {
-            animator.SetBool("walk", true);
-            if (this.orientation == "right")
+            if (commands_manager.PlayersCommands[this.GetComponent<Warrior>().number - 1] == key)
             {
-                transform.Rotate(0f, 180f, 0f);
+                animator.SetBool("walk", true);
+                if (this.orientation == "right")
+                {
+                    transform.Rotate(0f, 180f, 0f);
+                }
+                left();
             }
-            left();
         }
-        if (commands_manager.PlayersCommands[this.GetComponent<Warrior>().number] == "N"
-        || commands_manager.PlayersCommands[this.GetComponent<Warrior>().number] == "NE"
-        || commands_manager.PlayersCommands[this.GetComponent<Warrior>().number] == "NW"
-         && jump)
+        foreach (string key in go_up)
         {
-            if (!init_stop_jump)
+            if (commands_manager.PlayersCommands[this.GetComponent<Warrior>().number - 1] == key && jump)
             {
-                StartCoroutine("Stop_jumping");
+                if (!init_stop_jump)
+                {
+                    StartCoroutine("Stop_jumping");
+                }
+
+                init_stop_jump = true;
+                Jump();
             }
-
-            init_stop_jump = true;
-
-            Jump();
         }
     }
 
