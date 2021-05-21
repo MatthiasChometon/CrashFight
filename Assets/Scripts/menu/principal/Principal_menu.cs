@@ -14,7 +14,7 @@ public class Principal_menu : Menu
             {
                 if (commands_manager.PlayersCommands[0] == validate_key)
                 {
-                    Lauch_action(actual_option);
+                    Lauch_action();
                     StartCoroutine(wait_to_move(0.3f, 0));
                 }
             }
@@ -40,11 +40,11 @@ public class Principal_menu : Menu
 
     }
 
-    public override void Lauch_action(int option)
+    public override void Lauch_action()
     {
-        if (option < actions.Length && actions[option] != "")
+        if (actual_option < actions.Length && actions[actual_option] != "")
         {
-            SceneManager.LoadScene(actions[option]);
+            SceneManager.LoadScene(actions[actual_option]);
         }
     }
 }

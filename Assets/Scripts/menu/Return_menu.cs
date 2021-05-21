@@ -10,11 +10,11 @@ public class Return_menu : Menu
     {
         if (commands_manager.PlayersCommands[0] == "yellow" || commands_manager.PlayersCommands[0] == "start")
         {
-            Return_to_menu();
+            Lauch_action();
         }
     }
 
-    void Return_to_menu() {
-        SceneManager.LoadScene(return_menu);
+    public override void Lauch_action() {
+        SceneManager.LoadScene(actual_option);
     }
 }

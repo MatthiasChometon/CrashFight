@@ -29,7 +29,7 @@ public abstract class Menu : control
         actual_option = option;
     }
 
-    public virtual void Lauch_action(int option)
+    public virtual void Lauch_action()
     {
 
     }
