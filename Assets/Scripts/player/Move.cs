@@ -20,7 +20,6 @@ public class Move : control
     void Update()
     {
         animator.SetBool("walk", false);
-        can_move = false; 
         foreach (string key in go_right)
         {
             if (commands_manager.PlayersCommands[this.GetComponent<Warrior>().number - 1] == key)
@@ -59,6 +58,7 @@ public class Move : control
                 Jump();
             }
         }
+        can_move = false;
     }
 
     void left()

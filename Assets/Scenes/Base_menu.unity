@@ -476,6 +476,7 @@ RectTransform:
   - {fileID: 1779675237}
   - {fileID: 1699814266}
   - {fileID: 1173624176}
+  - {fileID: 1783697689}
   m_Father: {fileID: 825210286}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -537,10 +538,12 @@ MonoBehaviour:
   - {fileID: 1779675238}
   - {fileID: 1699814267}
   - {fileID: 1173624177}
+  - {fileID: 1783697690}
   actions:
   - PseudoChoice
   - Options_menu
   - Score
+  - Instruction
   validate_keys:
   - yellow
   - start
@@ -1095,7 +1098,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -237.95007}
+  m_AnchoredPosition: {x: 1, y: -213.18005}
   m_SizeDelta: {x: -694.4186, y: -475.90732}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1173624177
@@ -1382,7 +1385,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Press any button to start
+  m_Text: Press button start
 --- !u!222 &1596681939
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1425,7 +1428,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -182.85999}
+  m_AnchoredPosition: {x: 1, y: -158.08997}
   m_SizeDelta: {x: -694.4186, y: -475.90732}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1699814267
@@ -1503,7 +1506,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -127.77002}
+  m_AnchoredPosition: {x: 1, y: -103}
   m_SizeDelta: {x: -694.4186, y: -475.90732}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1779675238
@@ -1546,6 +1549,84 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1779675236}
+  m_CullTransparentMesh: 0
+--- !u!1 &1783697688
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1783697689}
+  - component: {fileID: 1783697691}
+  - component: {fileID: 1783697690}
+  m_Layer: 5
+  m_Name: controls
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1783697689
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1783697688}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 469954118}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 1, y: -269}
+  m_SizeDelta: {x: -588.723, y: -475.90732}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1783697690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1783697688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: a4c5edc835eedb24aa161edc34033dce, type: 3}
+    m_FontSize: 30
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: controls
+--- !u!222 &1783697691
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1783697688}
   m_CullTransparentMesh: 0
 --- !u!1 &1967173721
 GameObject:

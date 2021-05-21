@@ -16,8 +16,8 @@ public class control : MonoBehaviour
 
     protected IEnumerator wait_to_move(float time_to_wait, int player)
     {
-        can_move = false;
         commands_manager.PlayersCommands[player] = "";
+        can_move = false;
         yield return new WaitForSeconds(time_to_wait);
         can_move = true;
     }

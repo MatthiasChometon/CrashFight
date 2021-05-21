@@ -37,14 +37,12 @@ public class mqtt : MonoBehaviour
         string clientId = Guid.NewGuid().ToString();
         client.Connect(clientId);
 
-        // subscribe to the topic "/home/temperature" with QoS 2 
+        // subscribe to the topic "connect" with QoS 2 
         client.Subscribe(new string[] { "connect" }, new byte[] { MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE });
 
     }
     void client_MqttMsgPublishReceived(object sender, MqttMsgPublishEventArgs e)
     {
-
-        //Debug.Log("Received: " + System.Text.Encoding.UTF8.GetString(e.Message));
 
         if (e.Topic == "connect")
         {

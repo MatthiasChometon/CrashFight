@@ -5,10 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class Return_menu : Menu
 {
-    public string return_menu = "Base_menu";
     void Update()
     {
-        if (commands_manager.PlayersCommands[0] == "yellow" || commands_manager.PlayersCommands[0] == "start")
+        if (commands_manager.PlayersCommands[0] == "red")
         {
             Lauch_action();
         }
