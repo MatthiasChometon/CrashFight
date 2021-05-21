@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
- 
+
 public class Options_menu : Menu
 {
     public Slider[] Sliders;
@@ -12,42 +12,46 @@ public class Options_menu : Menu
 
     void Update()
     {
-
-        if (wait_change_value)
+        if (can_move == true)
         {
-            if (Input.GetKey(KeyCode.RightArrow))
+            if (wait_change_value)
             {
-                StartCoroutine(Lauch_action(actual_option, "+"));
+                if (commands_manager.PlayersCommands[0] == "E")
+                {
+                    StartCoroutine(Lauch_action(actual_option, "+"));
+                }
+
+                if (commands_manager.PlayersCommands[0] == "W")
+                {
+                    StartCoroutine(Lauch_action(actual_option, "-"));
+                }
             }
 
-            if (Input.GetKey(KeyCode.LeftArrow))
+            if (commands_manager.PlayersCommands[0] == "N")
             {
-                StartCoroutine(Lauch_action(actual_option, "-"));
+                if (actual_option > 0)
+                {
+                    Change_actual_option(actual_option - 1);
+                    StartCoroutine(wait_to_move(0.3f, 0));
+                }
             }
-        }
 
-        if (Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            if (actual_option > 0)
+            if (commands_manager.PlayersCommands[0] == "S")
             {
-                Change_actual_option(actual_option - 1);
+                if (actual_option < options.Length - 1)
+                {
+                    Change_actual_option(actual_option + 1);
+                    StartCoroutine(wait_to_move(0.3f, 0));
+                }
             }
-        }
 
-        if (Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            if (actual_option < options.Length - 1)
+            if (commands_manager.PlayersCommands[0] == "start" || commands_manager.PlayersCommands[0] == "yellow")
             {
-                Change_actual_option(actual_option + 1);
-            }
-        }
-
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return))
-        {
-            if (actual_option == options.Length - 1)
-            {
-                IEnumerator coroutine = GetComponent<PostStat>().Upload(return_menu);
-                GetComponent<PostStat>().StartCoroutine(coroutine);
+                if (actual_option == options.Length - 1)
+                {
+                    IEnumerator coroutine = GetComponent<PostStat>().Upload(return_menu);
+                    GetComponent<PostStat>().StartCoroutine(coroutine);
+                }
             }
         }
 
@@ -55,19 +59,22 @@ public class Options_menu : Menu
     public IEnumerator Lauch_action(int option, string operation)
     {
         wait_change_value = false;
-        if (option < Sliders.Length && Sliders[option] != null)
+        if (Sliders[option] != null)
         {
-            if (operation == "-")
+            if (option < Sliders.Length)
             {
-                Sliders[option].value -= 1;
-            }
+                if (operation == "-")
+                {
+                    Sliders[option].value -= 1;
+                }
 
-            if (operation == "+")
-            {
-                Sliders[option].value += 1;
+                if (operation == "+")
+                {
+                    Sliders[option].value += 1;
+                }
             }
+            yield return new WaitForSeconds(1 / Sliders[option].maxValue);
         }
-        yield return new WaitForSeconds(1 / Sliders[option].maxValue);
         wait_change_value = true;
     }
 }

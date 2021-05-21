@@ -6,57 +6,73 @@ using System;
 
 public class Choose_player : MonoBehaviour
 {
-    public KeyCode left;
-    public KeyCode right;
-    public KeyCode top;
-    public KeyCode bottom;
-    public KeyCode validate;
     public string actual_choice = "Venom";
     public GameObject[] box_choices;
     public float box_size = 2.6f;
     public Player player;
     private user_management user_Management;
     private choose_player_management choose_player_management;
+    private mqtt commands_manager;
+    private bool can_move = true;
+    public string key_right = "E";
+    public string key_left = "W";
+    public string key_top = "N";
+    public string key_bottom = "S";
+    private bool character_chosen;
 
     void Start()
     {
+        character_chosen = false;
         choose_player_management = GameObject.FindGameObjectsWithTag("choose_player_manager")[0].GetComponent<choose_player_management>();
         user_Management = GameObject.FindGameObjectsWithTag("user_manager")[0].GetComponent<user_management>();
+        commands_manager = GameObject.FindGameObjectsWithTag("commands_manager")[0].GetComponent<mqtt>();
         box_choices = GameObject.FindGameObjectsWithTag("box_choices");
         Move_to_character(actual_choice);
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(left))
+        Try_to_move(key_right, "right");
+        Try_to_move(key_left, "left");
+        Try_to_move(key_top, "top");
+        Try_to_move(key_bottom, "bottom");
+
+        if (commands_manager.PlayersCommands[player.number - 1] == "yellow" && character_chosen == false)
         {
-            Move("left");
+            Validate_character(actual_choice);
         }
 
-        if (Input.GetKeyDown(right))
-        {
-            Move("right");
-        }
-
-        if (Input.GetKeyDown(top))
-        {
-            Move("top");
-        }
-
-        if (Input.GetKeyDown(bottom))
-        {
-            Move("bottom");
-        }
-
-        if (Input.GetKeyDown(validate))
+        if (commands_manager.PlayersCommands[player.number - 1] == "red" && character_chosen == true)
         {
             Validate_character(actual_choice);
         }
     }
 
-    void Validate_character(string character_chosen) {
-        user_Management.Modify_player(player, character_chosen);
-        choose_player_management.Check_character_chosen(true);
+    void Try_to_move(string command, string move)
+    {
+        if (can_move == true)
+        {
+            if (commands_manager.PlayersCommands[player.number - 1] == command)
+            {
+                Move(move);
+                StartCoroutine(wait_to_move());
+            }
+        }
+    }
+
+    IEnumerator wait_to_move()
+    {
+        can_move = false;
+        commands_manager.PlayersCommands[player.number - 1] = "";
+        yield return new WaitForSeconds(0.5f);
+        can_move = true;
+    }
+
+    void Validate_character(string character)
+    {
+        character_chosen = !character_chosen;
+        user_Management.Modify_player(player, character);
+        choose_player_management.Check_character_chosen(character_chosen);
     }
 
     void Move(string shifting)

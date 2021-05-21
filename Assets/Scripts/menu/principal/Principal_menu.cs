@@ -5,33 +5,41 @@ using UnityEngine.SceneManagement;
 
 public class Principal_menu : Menu
 {
-    public List<KeyCode> validate_keys;
+    public string[] validate_keys;
     void Update()
     {
-        foreach (KeyCode validate_key in validate_keys)
+        if (can_move == true)
         {
-            if (Input.GetKeyDown(validate_key))
+            foreach (string validate_key in validate_keys)
             {
-                Lauch_action(actual_option);
+                if (commands_manager.PlayersCommands[0] == validate_key)
+                {
+                    Lauch_action(actual_option);
+                    StartCoroutine(wait_to_move(0.3f, 0));
+                }
+            }
+
+            if (commands_manager.PlayersCommands[0] == "N")
+            {
+                if (actual_option > 0)
+                {
+                    Change_actual_option(actual_option - 1);
+                    StartCoroutine(wait_to_move(0.3f, 0));
+                }
+            }
+
+            if (commands_manager.PlayersCommands[0] == "S")
+            {
+                if (actual_option < options.Length - 1)
+                {
+                    Change_actual_option(actual_option + 1);
+                    StartCoroutine(wait_to_move(0.6f, 0));
+                }
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            if (actual_option > 0)
-            {
-                Change_actual_option(actual_option - 1);
-            }
-        }
-
-        if (Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            if (actual_option < options.Length - 1)
-            {
-                Change_actual_option(actual_option + 1);
-            }
-        }
     }
+
     public override void Lauch_action(int option)
     {
         if (option < actions.Length && actions[option] != "")

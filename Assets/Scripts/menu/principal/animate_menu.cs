@@ -2,20 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class animate_menu : MonoBehaviour
+public class animate_menu : Menu
 {
     public GameObject menu_subtitles;
     public GameObject menu_press_key;
     private bool menu_display = false;
+
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && !menu_display)
+        if (commands_manager.PlayersCommands[0] == "start" || commands_manager.PlayersCommands[0] == "yellow" && !menu_display)
         {
             Display_menu();
+            StartCoroutine(wait_to_move(0.3f,0));
             menu_display = true;
         }
     }
-
 
     void Display_menu()
     {

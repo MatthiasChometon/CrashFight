@@ -19,9 +19,9 @@ public class choose_player_management : MonoBehaviour
         }
     }
 
-    public void Check_character_chosen(bool character_choosen)
+    public void Check_character_chosen(bool character_chosen)
     {
-        if (character_choosen)
+        if (character_chosen)
         {
             players_number--;
         }
@@ -33,6 +33,7 @@ public class choose_player_management : MonoBehaviour
         {
             SceneManager.LoadScene(next_scene);
         }
+        Debug.Log(players_number);
     }
 
 }

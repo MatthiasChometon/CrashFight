@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Move : MonoBehaviour
+public class Move : control
 {
     public float vitesse = 0.0001f;
     public float force = 0.012f;
@@ -11,16 +11,19 @@ public class Move : MonoBehaviour
     public bool jump = true;
     private bool in_contact_ground = true;
     public int wait_jump = 10;
+    public List<string> go_right = new List<string>() { "E", "NE", "SE" };
+    public List<string> go_left = new List<string>() { "W", "NW", "SW" };
+    public List<string> go_up = new List<string>() { "E", "NE", "SE" };
     public string orientation = "right";
     public Animator animator;
-    public KeyCode move_left;
-    public KeyCode move_right;
-    public KeyCode move_up;
 
     void Update()
     {
         animator.SetBool("walk", false);
-        if (Input.GetKey(move_right))
+        Debug.Log(commands_manager.PlayersCommands[this.GetComponent<Warrior>().number - 1]);
+        if (commands_manager.PlayersCommands[this.GetComponent<Warrior>().number] == "E"
+        || commands_manager.PlayersCommands[this.GetComponent<Warrior>().number] == "NE"
+        || commands_manager.PlayersCommands[this.GetComponent<Warrior>().number] == "SE")
         {
             animator.SetBool("walk", true);
             if (this.orientation == "left")
@@ -29,7 +32,9 @@ public class Move : MonoBehaviour
             }
             right();
         }
-        if (Input.GetKey(move_left))
+        if (commands_manager.PlayersCommands[this.GetComponent<Warrior>().number] == "W"
+        || commands_manager.PlayersCommands[this.GetComponent<Warrior>().number] == "NW"
+        || commands_manager.PlayersCommands[this.GetComponent<Warrior>().number] == "SW")
         {
             animator.SetBool("walk", true);
             if (this.orientation == "right")
@@ -38,7 +43,10 @@ public class Move : MonoBehaviour
             }
             left();
         }
-        if (Input.GetKey(move_up) && jump)
+        if (commands_manager.PlayersCommands[this.GetComponent<Warrior>().number] == "N"
+        || commands_manager.PlayersCommands[this.GetComponent<Warrior>().number] == "NE"
+        || commands_manager.PlayersCommands[this.GetComponent<Warrior>().number] == "NW"
+         && jump)
         {
             if (!init_stop_jump)
             {
