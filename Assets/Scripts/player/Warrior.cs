@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-public class Warrior : MonoBehaviour
+public class Warrior : control
 {
     public int Life = 100;
     public int number;
@@ -16,15 +16,17 @@ public class Warrior : MonoBehaviour
     {
         manager = GameObject.FindGameObjectsWithTag("manager")[0];
         Attacks = GetComponents<Attack>().ToList();
+        commands_manager = GameObject.FindGameObjectsWithTag("commands_manager")[0].GetComponent<mqtt>();
     }
     void Update()
     {
         foreach (Attack attack in Attacks)
         {
-            if (attack.Can_attack == true)
+            if (attack.Can_attack == true && can_move == true)
             {
-                if (Input.GetKeyDown(attack.Key))
+                if (commands_manager.PlayersCommands[number - 1] == attack.Key)
                 {
+                    StartCoroutine(wait_to_move(0.3f, number));
                     this.curent_attack = attack;
                     StartCoroutine(attack.Init());
                 }
