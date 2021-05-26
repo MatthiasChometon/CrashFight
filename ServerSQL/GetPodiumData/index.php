@@ -11,7 +11,7 @@ if ($conn->connect_errno) {
    exit();
 }
 //Récupérer les lignes de la table score
-$res = $conn->query("SELECT * FROM score");
+$res = $conn->query("SELECT * FROM `score` ORDER BY value DESC");
 //Initialiser un tableau
 $data = array();
 //Récupérer les lignes
