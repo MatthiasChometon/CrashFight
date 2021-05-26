@@ -8,6 +8,8 @@ public class choose_player_management : MonoBehaviour
     public List<GameObject> choose_boxes;
     private int players_number = 0;
     public string next_scene = "Battle";
+    public GameObject[] box_choose;
+    private List<int> characters_validated = new List<int>();
     void Start()
     {
         GameObject user_manager = GameObject.FindGameObjectsWithTag("user_manager")[0];
@@ -19,21 +21,20 @@ public class choose_player_management : MonoBehaviour
         }
     }
 
-    public void Check_character_chosen(bool character_chosen)
-    {
-        if (character_chosen)
-        {
-            players_number--;
+    public void Validate_characters(int player_number) {
+        bool character_added = false;
+        foreach(int character in characters_validated) {
+            if(character == player_number) {
+                character_added = true;
+            }
         }
-        else
-        {
-            players_number++;
+
+        if(character_added == false) {
+            characters_validated.Add(player_number);
+            if(characters_validated.Count == players_number) {
+                  SceneManager.LoadScene(next_scene);
+            }
         }
-        if (players_number == 0)
-        {
-            SceneManager.LoadScene(next_scene);
-        }
-        Debug.Log(players_number);
     }
 
 }

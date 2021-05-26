@@ -53,7 +53,7 @@ public class display_final_winner : MonoBehaviour
             }
             yield return new WaitForSeconds(0.001f);
         }
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(5);
         manager.GetComponent<Win_manager>().End_game();
     }
 }

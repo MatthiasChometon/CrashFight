@@ -14,7 +14,8 @@ public class Win_manager : MonoBehaviour
     private user_management user_management;
     public string level_to_load = "Choose_player_option";
 
-    void Start() {
+    void Start()
+    {
         user_management = GameObject.FindGameObjectsWithTag("user_manager")[0].GetComponent<user_management>();
     }
 
@@ -94,7 +95,16 @@ public class Win_manager : MonoBehaviour
         return false;
     }
 
-    public void End_game() {
+    public void End_game()
+    {
+        foreach (Player user in user_management.players)
+        {
+            user.rounds_win = 0;
+        }
+        foreach (GameObject round_mark in GameObject.FindGameObjectsWithTag("round_mark"))
+        {
+            Destroy(round_mark);
+        }
         SceneManager.LoadScene(level_to_load);
     }
 }

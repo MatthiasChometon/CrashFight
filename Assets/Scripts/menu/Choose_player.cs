@@ -41,11 +41,6 @@ public class Choose_player : MonoBehaviour
         {
             Validate_character(actual_choice);
         }
-
-        if (commands_manager.PlayersCommands[player.number - 1] == "red" && character_chosen == true)
-        {
-            Validate_character(actual_choice);
-        }
     }
 
     void Try_to_move(string command, string move)
@@ -70,9 +65,9 @@ public class Choose_player : MonoBehaviour
 
     void Validate_character(string character)
     {
-        character_chosen = !character_chosen;
+        character_chosen = true;
         user_Management.Modify_player(player, character);
-        choose_player_management.Check_character_chosen(character_chosen);
+        choose_player_management.Validate_characters(player.number);
     }
 
     void Move(string shifting)

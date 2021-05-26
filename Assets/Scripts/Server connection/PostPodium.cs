@@ -14,6 +14,8 @@ public class PostPodium : MonoBehaviour
 
         form.AddField("score", JsonConvert.SerializeObject(score));
 
+        Debug.Log("http://localhost:8000/SendPodiumData");
+
         UnityWebRequest www = UnityWebRequest.Post("http://localhost:8000/SendPodiumData", form);
         yield return www.SendWebRequest();
 
