@@ -218,7 +218,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93fd9b6a97f7e184e83cde5af3a97f7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 10
+  Damage: 12
   Speed: 4
   Object_attack: {fileID: 0}
   Couldown: 0.1
@@ -238,7 +238,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86a2a7a998bf47548b91dc01152720ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 10
+  Damage: 6
   Speed: 4
   Object_attack: {fileID: 567147294173414982, guid: 0e2fedf64e9dbc44999957165413b748,
     type: 3}
@@ -259,7 +259,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef4d981e0f2ba2c408c0528f1303671b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 10
+  Damage: 6
   Speed: 4
   Object_attack: {fileID: 9131865968379104221, guid: 0d308d9f4f9123647bd74ca4d0acf44c,
     type: 3}
