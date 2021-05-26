@@ -37,7 +37,7 @@ public class Choose_player : MonoBehaviour
         Try_to_move(key_top, "top");
         Try_to_move(key_bottom, "bottom");
 
-        if (commands_manager.PlayersCommands[player.number - 1] == "yellow" && character_chosen == false)
+        if (commands_manager.PlayersCommands[player.number - 1] == "start" && character_chosen == false)
         {
             Validate_character(actual_choice);
         }

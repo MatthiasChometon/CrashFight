@@ -13,7 +13,7 @@ public class animate_menu : Menu
         if (commands_manager.PlayersCommands[0] == "start" || commands_manager.PlayersCommands[0] == "yellow" && !menu_display)
         {
             Display_menu();
-            StartCoroutine(wait_to_move(0.3f,0));
+            StartCoroutine(wait_to_move(0.3f, 0));
             menu_display = true;
         }
     }

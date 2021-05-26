@@ -7,7 +7,7 @@ public class Return_menu : Menu
 {
     void Update()
     {
-        if (commands_manager.PlayersCommands[0] == "red")
+        if (commands_manager.PlayersCommands[0] == "yellow")
         {
             Lauch_action();
         }
