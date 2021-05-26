@@ -165,7 +165,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 207
-    m_Alignment: 3
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -196,8 +196,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -23}
-  m_SizeDelta: {x: 351.41992, y: 236.04529}
+  m_AnchoredPosition: {x: 0, y: -26.4}
+  m_SizeDelta: {x: 333.76373, y: 236.04529}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &236136752
 GameObject:

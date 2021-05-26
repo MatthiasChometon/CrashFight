@@ -17,7 +17,7 @@ public class Info_player : MonoBehaviour
     {
         if (player != null)
         {
-            transform.position = new Vector3(player.character.transform.position.x, player.character.transform.position.y + 3, -1);
+            transform.position = new Vector3(player.character.transform.position.x, player.character.transform.position.y + 3, 200);
             number_player.text = "P" + player.character.number.ToString();
             Color info_player_color = Color.white;
 
