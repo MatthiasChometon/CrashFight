@@ -32,7 +32,7 @@ public class choose_player_management : MonoBehaviour
         if(character_added == false) {
             characters_validated.Add(player_number);
             if(characters_validated.Count == players_number) {
-                  SceneManager.LoadScene(next_scene);
+                SceneManager.LoadScene(next_scene);
             }
         }
     }

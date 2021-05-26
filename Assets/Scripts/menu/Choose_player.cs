@@ -26,6 +26,7 @@ public class Choose_player : MonoBehaviour
         choose_player_management = GameObject.FindGameObjectsWithTag("choose_player_manager")[0].GetComponent<choose_player_management>();
         user_Management = GameObject.FindGameObjectsWithTag("user_manager")[0].GetComponent<user_management>();
         commands_manager = GameObject.FindGameObjectsWithTag("commands_manager")[0].GetComponent<mqtt>();
+        commands_manager.PlayersCommands[player.number - 1] = "";
         box_choices = GameObject.FindGameObjectsWithTag("box_choices");
         Move_to_character(actual_choice);
     }
