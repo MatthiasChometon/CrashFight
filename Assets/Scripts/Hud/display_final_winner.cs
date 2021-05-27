@@ -24,7 +24,7 @@ public class display_final_winner : MonoBehaviour
             if (player.number == manager.GetComponent<Win_manager>().winner.number)
             {
                 pseudo = player.pseudo;
-                win_text.text = "- " + pseudo + " -";
+                win_text.text = pseudo;
                 win_character_panel.GetComponent<Image>().sprite = player.character.GetComponent<SpriteRenderer>().sprite;
             }
 

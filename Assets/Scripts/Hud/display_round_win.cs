@@ -20,7 +20,7 @@ public class display_round_win : MonoBehaviour
         {
             if (player.number == manager.GetComponent<Win_manager>().winner.number)
             {
-                winner_text.text = "- " + player.pseudo + " -";
+                winner_text.text = player.pseudo;
                 win_text.text = "Win the round";
             }
         }
