@@ -5,10 +5,9 @@ using UnityEngine.UI;
 
 public class Display_users : MonoBehaviour
 {
-
     private bool scoreSet = false;
     private List<Score> best_scores;
-    public GameObject score;
+    public Text score_text;
 
     void Start()
     {
@@ -17,17 +16,13 @@ public class Display_users : MonoBehaviour
 
     void Update()
     {
-        Text score_text = score.GetComponent<Text>();
-        score_text.alignment = TextAnchor.MiddleLeft;
-
         if (GetComponent<GetPodium>().scoreSet == true && scoreSet == false)
         {
             foreach (Score score in GetComponent<GetPodium>().best_scores)
             {
-                score_text.text += score.Value + " : " + score.Winner + "\n" + "\n";
+                score_text.text += $"{score.Winner} : {score.Value} \n \n";
             }
             scoreSet = true;
         }
-
     }
 }
