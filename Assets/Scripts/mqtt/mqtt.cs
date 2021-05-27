@@ -46,7 +46,7 @@ public class mqtt : MonoBehaviour
 
         if (e.Topic == "connect")
         {
-            Debug.Log("connect");
+          
             connectToJoyStick(e);
         }
 
@@ -65,9 +65,6 @@ public class mqtt : MonoBehaviour
         PlayersId.Add(System.Text.Encoding.UTF8.GetString(e.Message));
 
         int Id = PlayersId.Count;
-
-        Debug.Log(Id);
-        Debug.Log("joystick/" + System.Text.Encoding.UTF8.GetString(e.Message));
 
         client.Publish("joystick/" + System.Text.Encoding.UTF8.GetString(e.Message), System.Text.Encoding.UTF8.GetBytes(Id.ToString()), MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE, true);
         client.Subscribe(new string[] { "command/" + Id.ToString() }, new byte[] { MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE });

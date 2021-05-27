@@ -31,6 +31,6 @@ public abstract class Menu : control
 
     public virtual void Lauch_action()
     {
-
+        
     }
 }

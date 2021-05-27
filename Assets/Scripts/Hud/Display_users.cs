@@ -23,15 +23,8 @@ public class Display_users : MonoBehaviour
         if (GetComponent<GetPodium>().scoreSet == true && scoreSet == false)
         {
             foreach (Score score in GetComponent<GetPodium>().best_scores)
-           {
-            score_text.text += score.Winner;
-            score_text.text += "    ";
-            score_text.text += score.Value.ToString();
-            score_text.text += "\n";
-            score_text.text += "\n";
-
-
-
+            {
+                score_text.text += score.Value + " : " + score.Winner + "\n" + "\n";
             }
             scoreSet = true;
         }

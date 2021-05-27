@@ -13,6 +13,10 @@ public class user_management : MonoBehaviour
     void Start()
     {
         DontDestroyOnLoad(this);
+        if (GameObject.FindGameObjectsWithTag("user_manager").Length == 2)
+        {
+            Destroy(GameObject.FindGameObjectsWithTag("user_manager")[1]);
+        }
     }
 
     public void Modify_player(Player player_modify, string character_wanted)
@@ -23,7 +27,6 @@ public class user_management : MonoBehaviour
     public void Create_players()
     {
         win_manager = GameObject.FindGameObjectsWithTag("manager");
-        //test creation players to delete
 
         win_manager[0].GetComponent<Win_manager>().players_number = players.Count;
 

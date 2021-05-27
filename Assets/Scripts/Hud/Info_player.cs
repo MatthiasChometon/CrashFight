@@ -11,6 +11,7 @@ public class Info_player : MonoBehaviour
     void Start()
     {
         transform.SetParent(GameObject.FindGameObjectsWithTag("hud")[0].transform);
+        transform.SetAsFirstSibling();
         transform.localScale = new Vector3(1, 1, 1);
     }
     void Update()

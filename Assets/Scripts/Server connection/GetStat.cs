@@ -21,7 +21,7 @@ public class GetStat : MonoBehaviour
 
         if (uwr.isNetworkError || uwr.isHttpError)
         {
-            Debug.Log(uwr.error);
+    
         }
         else
         {

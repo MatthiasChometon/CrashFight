@@ -19,6 +19,7 @@ public class PseudoChoice : Menu
     private pseudo_manager pseudo_manager;
     void Start()
     {
+        character_chosen = false;
         pseudo_manager = GameObject.FindGameObjectsWithTag("pseudo_manager")[0].GetComponent<pseudo_manager>();
         user_management = GameObject.FindGameObjectsWithTag("user_manager")[0].GetComponent<user_management>();
         commands_manager = GameObject.FindGameObjectsWithTag("commands_manager")[0].GetComponent<mqtt>();
@@ -48,8 +49,9 @@ public class PseudoChoice : Menu
                 Go_down();
             }
 
-            if (commands_manager.PlayersCommands[user_number - 1] == "start")
+            if (commands_manager.PlayersCommands[user_number - 1] == "start" && character_chosen == false)
             {
+                character_chosen = true;
                 Update_pseudo();
                 this.Add_pseudo_player(this.pseudo);
             }

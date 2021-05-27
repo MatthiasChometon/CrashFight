@@ -43,7 +43,7 @@ public class Warrior : control
 
         if (this.Object_in_contact && this.Object_in_contact.tag == "Player")
         {
-            Debug.Log("damage: " + this.Object_in_contact.GetComponent<Warrior>().Damage);
+
             Take_damage(this.Object_in_contact.GetComponent<Warrior>().Damage);
         }
 
@@ -61,7 +61,7 @@ public class Warrior : control
             damage = this.Object_in_contact.GetComponent<Warrior>().curent_attack.Damage;
         }
         StartCoroutine(Take_damage_animation(damage, this.Object_in_contact, near_attack));
-        Debug.Log(damage);
+
         this.Life -= damage;
         if (this.Life <= 0)
         {

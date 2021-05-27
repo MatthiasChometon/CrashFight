@@ -13,7 +13,6 @@ public class control : MonoBehaviour
         character_chosen = false;
         commands_manager = GameObject.FindGameObjectsWithTag("commands_manager")[0].GetComponent<mqtt>();
     }
-
     protected IEnumerator wait_to_move(float time_to_wait, int player)
     {
         commands_manager.PlayersCommands[player] = "";

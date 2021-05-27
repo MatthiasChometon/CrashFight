@@ -44,7 +44,7 @@ public class Principal_menu : Menu
     {
         if (actual_option < actions.Length && actions[actual_option] != "")
         {
-            Debug.Log(actions[actual_option]);
+            
             SceneManager.LoadScene(actions[actual_option]);
         }
     }

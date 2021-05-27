@@ -30,7 +30,7 @@ public class statBar : MonoBehaviour
         if (number_round_win_display < player.rounds_win)
         {
             GameObject instance;
-            instance = Instantiate(win_round_point, new Vector3(transform.position.x + position_x_shift, transform.position.y - 1, transform.position.z),
+            instance = Instantiate(win_round_point, new Vector3(transform.position.x + position_x_shift, transform.position.y - 1, - 1),
                 transform.rotation);
             position_x_shift += 1;
             number_round_win_display += 1;

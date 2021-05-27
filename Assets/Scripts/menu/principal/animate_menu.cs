@@ -10,7 +10,7 @@ public class animate_menu : Menu
 
     void Update()
     {
-        if (commands_manager.PlayersCommands[0] == "start" || commands_manager.PlayersCommands[0] == "yellow" && !menu_display)
+        if (commands_manager.PlayersCommands[0] == "yellow" && !menu_display)
         {
             Display_menu();
             StartCoroutine(wait_to_move(0.3f, 0));

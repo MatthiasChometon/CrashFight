@@ -28,14 +28,14 @@ public class mqttTest : MonoBehaviour {
 	void client_MqttMsgPublishReceived(object sender, MqttMsgPublishEventArgs e) 
 	{ 
 
-		Debug.Log("Received: " + System.Text.Encoding.UTF8.GetString(e.Message)  );
+
 	} 
 
 	void OnGUI(){
 		if ( GUI.Button (new Rect (20,40,80,20), "Level 1")) {
-			Debug.Log("sending...");
+	
 			client.Publish("hello/world", System.Text.Encoding.UTF8.GetBytes("Sending from Unity3D!!!"), MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE, true);
-			Debug.Log("sent");
+		
 		}
 	}
 	// Update is called once per frame
